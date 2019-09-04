@@ -1,0 +1,70 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player/run00.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Player/run01.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player/run02.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/run03.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/idle00.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/jump01.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/walk00.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/walk01.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/walk02.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/walk03.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Player/jump02.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Run",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "Fall",
+"speed": 0.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.5
+height = 9.0
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, 5 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = -180
+limit_right = 1280
+limit_bottom = 180
+smoothing_enabled = true
+smoothing_speed = 10.0

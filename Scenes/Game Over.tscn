@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/EndScreen.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Menu/GameOver.jpg" type="Texture" id=2]
+
+[node name="GameOver" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 160, 84 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite"]
+margin_left = -150.0
+margin_top = 95.0
+margin_bottom = 125.0
+rect_scale = Vector2( 2, 2 )
+text = "Press ENTER to go back
+    to the main menu!"
+scroll_active = false
