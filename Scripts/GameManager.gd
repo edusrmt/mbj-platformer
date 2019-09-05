@@ -17,6 +17,10 @@ func crown_collected ():
 	elif curLevel == 2:	
 		get_tree().change_scene("Scenes/Stage 3.tscn")
 	elif curLevel == 3:	
+		lives = 3
+		score = 0
+		curScore = 0
+		curLevel = 0
 		get_tree().change_scene("Scenes/Congratulations.tscn")
 		
 	curLevel += 1
